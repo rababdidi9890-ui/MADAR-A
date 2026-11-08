@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MADAR-A Cinema Studio</title>
+<style>
+body{background:#0a0a0a;color:#fff;font-family:sans-serif;padding:20px;text-align:center}
+h1{color:#f5c518;font-size:32px}
+.card{background:#1a1a1a;padding:20px;border-radius:16px;margin:15px 0;border:1px solid #333}
+button{background:#f5c518;color:#000;padding:12px 20px;border-radius:10px;border:0;font-weight:bold;width:100%;margin-top:10px}
+input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#111;color:#fff;margin-top:8px}
+</style>
+</head>
+<body>
+<h1>🎬 MADAR-A</h1>
+<p>استوديو السينما بالذكاء الاصطناعي</p>
+<div class="card">
+<h3>نوع العمل</h3>
+<select id="type">
+<option>فيلم سينمائي</option>
+<option>مسلسل</option>
+<option>أنمي</option>
+<option>مسرحية</option>
+<option>إعلان</option>
+</select>
+<textarea id="idea" rows="4" placeholder="اكتب فكرة الفيلم هنا..."></textarea>
+<button onclick="generate()">✨ توليد المعاينة</button>
+<div id="preview" style="margin-top:15px;color:#aaa"></div>
+</div>
+<script>
+function generate(){
+    const type=document.getElementById('type').value;
+    const idea=document.getElementById('idea').value;
+    const preview=document.getElementById('preview');
+    const typeLine=document.createElement('p');
+    const ideaLine=document.createElement('p');
+    const statusLine=document.createElement('p');
+    typeLine.textContent='🎥 النوع: '+type;
+    ideaLine.textContent='💡 الفكرة: '+idea;
+    statusLine.textContent='✅ جاري توليد السيناريو... (النسخة المحلية)';
+    preview.replaceChildren(document.createElement('hr'),typeLine,ideaLine,statusLine);
+}
+</script>
+</body>
+</html>
